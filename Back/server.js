@@ -1,5 +1,10 @@
 const http = require('http');
 const app = require('./app');
+// const { Sequelize } = require('sequelize');
+// const sequelize = new Sequelize('root', 'K-Charles-09/1995', {
+//   host: 'localhost',
+//   dialect: 'mysql'
+// })
 
 const normalizePort = val => {
   const port = parseInt(val, 10);
@@ -12,6 +17,14 @@ const normalizePort = val => {
   }
   return false;
 };
+
+// try {
+//   sequelize.authenticate();
+//   console.log('Sequelize :Connection has been established successfully.');
+// } catch (error) {
+//   console.error('Sequelize :Unable to connect to the database:', error);
+// }
+
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 

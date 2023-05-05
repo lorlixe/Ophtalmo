@@ -1,9 +1,9 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const db = require("../models");
-const User = db.User;
+const app = express();
 
-//création de compte
+const User = require("../database/database.js");
+
 exports.signup = (req, res, next) => {
   const { name, surname, password, email, sexe, TypeId } = req.body;
   const createdAt = new Date();

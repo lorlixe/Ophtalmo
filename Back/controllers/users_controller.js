@@ -23,9 +23,8 @@ exports.signup = (req, res, next) => {
   // vérifié si l'utilisateur existe
   User.findOne({
     attribute: ["email"],
-    where: { email: email }, 
-  }
-  )
+    where: { email: email },
+  })
     .then(function (userFound) {
       if (!userFound) {
         bcrypt.hash(req.body.password, 10).then((hash) => {
@@ -51,30 +50,33 @@ exports.signup = (req, res, next) => {
     .catch((error) => res.status(500).json({ error: "email déjà utilisé" }));
 };
 
-// Connexion 
+// Connexion
 
 exports.login = (req, res, next) => {
   let encryptedEmail = req.body.email;
   User.findOne({ email: encryptedEmail })
-    .then(user => {
+    .then((user) => {
       if (!user) {
-        return res.status(401).json({ error: 'Utilisateur non trouvé !' });
+        return res.status(401).json({ error: "Utilisateur non trouvé !" });
       }
-      bcrypt.compare(req.body.password, user.password)
-        .then(valid => {
-            if (!valid) {
-              return res.status(401).json({ error: 'Mot de passe incorrect !' });
+      bcrypt
+        .compare(req.body.password, user.password)
+        .then((valid) => {
+          if (!valid) {
+            return res.status(401).json({ error: "Mot de passe incorrect !" });
           }
           res.status(200).json({
-            userId: user._id,
+            userId: user.id,
+            TypeId: user.TypeId,
             token: jwt.sign(
-              { userId: user._id },
-              'RANDOM_TOKEN_SECRET',
-              { expiresIn: '24h' }
-            )
+              { userId: user.id,
+                TypeId: user.TypeId },
+              "RANDOM_TOKEN_SECRET",
+              { expiresIn: "24h" }
+            ),
           });
-      })
-      .catch(error => res.status(500).json({ error }));
+        })
+        .catch((error) => res.status(500).json({ error }));
     })
-  .catch(error => res.status(500).json({ error }));
+    .catch((error) => res.status(500).json({ error }));
 };

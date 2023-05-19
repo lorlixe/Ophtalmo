@@ -12,7 +12,6 @@ function authentification(req, res, next) {
       userId: userId,
     };
     // faire une reqete pour vérifier que le userID existe
-    // faire un findOne pour récupérer le TypeId dans le controller
 
     next();
   } catch (error) {
@@ -25,12 +24,12 @@ function authorization(req, res, next) {
     .then((user) => {
         if (user.TypeId !== 1) {
             res.status(401).json({ message: "Not authorized" });
+          }
+          else{
+            next()
           } 
-
     })
     .catch((error) => res.status(500).json({ error }));
-
-  next();
 
 }
 

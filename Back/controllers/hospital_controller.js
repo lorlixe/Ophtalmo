@@ -5,7 +5,6 @@ const Hospital = db.Hospital;
 module.exports.getHospital = async (req, res) => {
   // console.log(req)
   const allHospital = await Hospital.findAll();
-  console.log(req.auth);
   res.status(200).json(allHospital);
 };
 // afficher un seul hôpital
@@ -13,6 +12,7 @@ module.exports.getHospital = async (req, res) => {
 module.exports.findHospital = async (req, res) => {
   const oneHospital = await Hospital.findByPk(req.params.id);
   res.status(200).json(oneHospital);
+  
 };
 
 // créer un hôpital

@@ -67,9 +67,16 @@ exports.editHospital = (req, res) => {
 // supprimer un hôpital
 
 module.exports.deleteHospital = (req, res) => {
-  Hospital.destroy({ where: { id: req.params.id } })
-    .then(() => res.status(200).json({ message: "Hôpital supprimé!" }))
-    .catch((error) => {
-      res.status(400).json({ error: error });
-    });
+  Hospital.findOne({ where: { id: req.params.id } }) // ou findByPk(req.params.id)
+  .then((hospital) => {
+    if (!hospital) {
+      res.status(404).json({ message: "Hôpital non trouvé" });
+    } else {
+      Hospital.destroy({ where: { id: req.params.id } })
+      .then(() => res.status(200).json({ message: "Hôpital supprimé!" }))
+      .catch((error) => {
+        res.status(400).json({ error: error });
+      });
+    }})
+  
 };

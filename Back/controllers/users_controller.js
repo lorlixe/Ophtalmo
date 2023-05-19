@@ -21,10 +21,7 @@ exports.signup = (req, res, next) => {
     return res.status(400).json({ error: "un paramètre n'a pas été complété" });
   }
   // vérifié si l'utilisateur existe
-  User.findOne({
-    attribute: ["email"],
-    where: { email: email },
-  })
+  User.findOne({ where: { email: email },})
     .then(function (userFound) {
       if (!userFound) {
         bcrypt.hash(req.body.password, 10).then((hash) => {
@@ -41,20 +38,25 @@ exports.signup = (req, res, next) => {
             .then(function (newUser) {
               return res.status(201).json({
                 userID: newUser.id,
+                TypeId: newUser.TypeId
               });
             })
             .catch((error) => res.status(500).json({ error }));
         });
+      
+      }
+      else{
+        res.status(403).json({ error: "email déjà utilisé" })
       }
     })
-    .catch((error) => res.status(500).json({ error: "email déjà utilisé" }));
-};
+    .catch((error) => res.status(500).json({ error }));
+  };
 
 // Connexion
 
 exports.login = (req, res, next) => {
-  let encryptedEmail = req.body.email;
-  User.findOne({ email: encryptedEmail })
+  let email = req.body.email;
+  User.findOne({ where: { email: email }})
     .then((user) => {
       if (!user) {
         return res.status(401).json({ error: "Utilisateur non trouvé !" });

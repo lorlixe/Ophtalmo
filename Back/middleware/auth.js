@@ -19,21 +19,37 @@ function authentification(req, res, next) {
   }
 }
 
-function authorization(req, res, next) {
-    User.findOne({ where: { id: req.auth.userId },})
-    .then((user) => {
-        if (user.TypeId !== 1) {
-            res.status(401).json({ message: "Not authorized" });
-          }
-          else{
-            next()
-          } 
-    })
-    .catch((error) => res.status(500).json({ error }));
+const authorization = (myParam) => {
+  return (req, res, next) => {
+    User.findOne({ where: { id: req.auth.userId } })
+      .then((user) => {
+        if (user.TypeId !== myParam) {
+          res.status(401).json({ message: "Not authorized" });
+        } else {
+          next();
+        }
+      })
+      .catch((error) => res.status(500).json({ error }));
+  };
+};
 
-}
+
+// function authorization(req, res, next) {
+//     User.findOne({ where: { id: req.auth.userId },})
+//     .then((user) => {
+//         if (user.TypeId !== 1) {
+//             res.status(401).json({ message: "Not authorized" });
+//           }
+//           else{
+//             next()
+//           }
+//     })
+//     .catch((error) => res.status(500).json({ error }));
+// }
 
 module.exports = {
   authentification,
-  authorization
+  authorization,
 };
+
+// fonction autorisation pour un seul code , permet de gérer les autorisations de tous les type

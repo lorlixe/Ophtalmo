@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Slot extends Model {
     /**
@@ -14,18 +12,23 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: {
           allowNull: false,
         },
-      }); 
+      });
+      models.Slot.hasOne(models.Appointment);
+
       // define association here
     }
   }
-  Slot.init({
-    availablity: DataTypes.BOOLEAN,
-    start: DataTypes.DATE,
-    end: DataTypes.DATE,
-    hospitalId: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Slot',
-  });
+  Slot.init(
+    {
+      availablity: DataTypes.BOOLEAN,
+      start: DataTypes.DATE,
+      end: DataTypes.DATE,
+      hospitalId: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: "Slot",
+    }
+  );
   return Slot;
 };

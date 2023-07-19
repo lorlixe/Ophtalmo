@@ -18,7 +18,7 @@ function authentification(req, res, next) {
     res.status(401).json({ error });
   }
 }
-
+// vérifié si l'utilisateur à le droit d'accéder à la page
 const authorization = (myParam) => {
   return (req, res, next) => {
     User.findOne({ where: { id: req.auth.userId } })
@@ -32,7 +32,6 @@ const authorization = (myParam) => {
       .catch((error) => res.status(500).json({ error }));
   };
 };
-
 
 // function authorization(req, res, next) {
 //     User.findOne({ where: { id: req.auth.userId },})

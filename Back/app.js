@@ -2,6 +2,7 @@ const express = require("express");
 const userRoutes = require("./routes/users_routes.js");
 const hospitalRoutes = require("./routes/hospital_routes.js");
 const slotRoutes = require("./routes/slot_routes.js");
+const appointmentRoutes = require("./routes/appointment_routes.js");
 
 const app = express();
 app.use(express.json());
@@ -23,5 +24,6 @@ app.use((req, res, next) => {
 app.use("/user", userRoutes);
 app.use("/hospital", hospitalRoutes);
 app.use("/slot", slotRoutes);
+app.use("/appointment", appointmentRoutes);
 
 module.exports = app;

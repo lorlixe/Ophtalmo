@@ -1,0 +1,192 @@
+* {
+  font-family: "Gill Sans", sans-serif;
+}
+.navigation {
+  height: auto;
+  width: 100%;
+  background-color: #d8d8df;
+  position: relative;
+  border-radius: 10px;
+}
+
+.container {
+  width: 400px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  padding: 29px 0px;
+}
+
+form * {
+  font-family: "Poppins", sans-serif;
+  color: #050000;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+}
+
+label {
+  display: block;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.sexe {
+  display: flex;
+  margin: 5%;
+  width: 50%;
+}
+input {
+  display: block;
+  height: 50px;
+  width: 17.5em;
+  border: 2px solid;
+  border-radius: 3px;
+  padding: 0 10px;
+  margin: 8px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.inputsexe {
+  width: 6em;
+  display: flex;
+  align-items: center;
+}
+
+.btn-submit {
+  margin-top: 50px;
+  width: 15em;
+  background-color: #149138;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+
+form h3 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+}
+
+/* btn {
+  width: 15em;
+  background-color: #bbbfbc;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+} */
+
+.info {
+  margin: 50px auto;
+  text-align: center;
+  color: #ef3b3a;
+  font-weight: bold;
+}
+
+p {
+  margin: 50px auto;
+  text-align: center;
+  color: #026e1d;
+  font-weight: bold;
+}
+
+.btn {
+  margin-bottom: 15px;
+  color: #016c86;
+  font-weight: bold;
+}
+
+.btn:hover {
+  text-decoration: underline;
+  color: #01252e;
+}
+
+ul {
+  display: flex;
+  margin: 30px;
+}
+
+li {
+  color: black;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+li:hover {
+  color: #c73c3c;
+}
+
+a {
+  text-decoration: none;
+  padding: 10px;
+}
+/* ////////// */
+
+/* .slot-container {
+  display: flex;
+  flex-direction: row;
+} */
+
+.card {
+  height: auto;
+  width: 40%;
+  border: 2px solid rgb(9, 90, 2);
+  border-radius: 4px;
+  margin: 5px;
+  padding-bottom: 10px;
+}
+
+.card,
+li {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card p {
+  color: #050000;
+  margin: auto;
+}
+.card h3 {
+  color: rgb(9, 90, 2);
+  text-align: center;
+}
+
+.booking-space h1 {
+  text-align: center;
+}
+
+.wrapper {
+  width: calc(100%-30px);
+  border: 1px solid;
+  margin: 15px;
+}
+
+.rdv-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-around;
+  display: inline-block;
+}

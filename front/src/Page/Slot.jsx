@@ -12,7 +12,6 @@ const Slot = () => {
       var b = document.cookie.match("(^|;)\\s*" + key + "\\s*=\\s*([^;]+)");
       return b ? b.pop() : "";
     }
-
     const token = getCookie("_auth");
 
     axios

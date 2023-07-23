@@ -15,7 +15,7 @@ function authentification(req, res, next) {
 
     next();
   } catch (error) {
-    res.status(401).json({ error });
+    res.status(401).json({ message: "l'utilisateur n'est authentifier" });
   }
 }
 // vérifié si l'utilisateur à le droit d'accéder à la page
@@ -24,7 +24,7 @@ const authorization = (myParam) => {
     User.findOne({ where: { id: req.auth.userId } })
       .then((user) => {
         if (user.TypeId !== myParam) {
-          res.status(401).json({ message: "Not authorized" });
+          res.status(401).json({ message: "accès réserver aux admin" });
         } else {
           next();
         }

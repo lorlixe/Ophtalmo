@@ -9,3 +9,27 @@
   padding: 20px;
   margin: 5px;
 }
+
+.slot-date {
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 5px;
+  border-radius: 5%;
+}
+.slot-date p {
+  color: green;
+  margin: 0;
+}
+
+.slot-date h4 {
+  margin-top: 0;
+}
+
+.grid-slot {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.slot-date:hover {
+  box-shadow: 0 0 4px rgba(107, 107, 111, 0.6);
+}

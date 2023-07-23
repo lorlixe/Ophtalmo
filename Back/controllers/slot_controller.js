@@ -54,10 +54,13 @@ module.exports.findSolt = (req, res) => {
 // crée un créneau
 
 module.exports.setSolt = (req, res) => {
-  const { start, end, hospitalId } = req.body;
+  const { start, hospitalId } = req.body;
   delete req.body.id;
   const createdAt = new Date();
   const updatedAt = new Date();
+  const dateObj = new Date(start);
+  dateObj.setTime(dateObj.getTime() + 60 * 60 * 1000);
+  const end = dateObj.toISOString();
   if (start < createdAt || end < createdAt || start >= end) {
     res.status(401).json({ message: "erreur sur les dates" });
   } else {

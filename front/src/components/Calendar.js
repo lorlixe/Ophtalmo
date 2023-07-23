@@ -3,7 +3,7 @@ import "../Style/grid.css";
 import { useEffect, useState } from "react";
 
 export default function Calendar(slot) {
-  const [firstDay, setfirstDay] = useState(new Date());
+  const [firstDay] = useState(new Date());
   const [allweek, setAllWeek] = useState([]);
   let [nextdays, setNextDays] = useState(0);
   // --------------------------------------------changer de page du calendrier----------------------------------------
@@ -19,7 +19,7 @@ export default function Calendar(slot) {
   // --------------------------
   useEffect(() => {
     let week = [];
-    let dday = firstDay.getDay();
+    // let dday = firstDay.getDay();
     const dayOfTheWeek = [
       "Dimanche",
       "Lundi",
@@ -29,7 +29,6 @@ export default function Calendar(slot) {
       "Vendredi",
       "Samedi",
     ];
-
     for (let i = 0; i < 6; i++) {
       const date = new Date();
       date.setDate(firstDay.getDate() + (i + nextdays));
@@ -41,7 +40,7 @@ export default function Calendar(slot) {
     }
     setAllWeek(week);
   }, [nextdays]);
-
+  console.log(allweek);
   return (
     <div>
       <div className="nextPage">
@@ -55,7 +54,7 @@ export default function Calendar(slot) {
       <div className="grid-container">
         {allweek.map((week, index) => (
           <div className="grid-item" key={index}>
-            {week.day} {week.date} <RdvGrid slot={slot} allweek={allweek} />
+            {week.day} {week.date} <RdvGrid slot={slot} date={week.date} />
           </div>
         ))}
       </div>

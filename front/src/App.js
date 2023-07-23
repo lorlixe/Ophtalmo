@@ -1,10 +1,18 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
 import Connexion from "./Page/Connection";
 import Error from "./Page/Error";
 import Slot from "./Page/Slot";
+import NewSlot from "./Page/NewSlot";
 import { RequireAuth } from "react-auth-kit";
 import { AuthProvider } from "react-auth-kit";
+import RoleAccess from "./Components/RoleAcess";
 
 function App() {
   return (
@@ -16,12 +24,22 @@ function App() {
     >
       <Router>
         <Routes>
+          <Route element={<RoleAccess roles={[1]}></RoleAccess>}>
+            <Route
+              path="/admin/newSlot"
+              element={
+                <RequireAuth loginPath="/slot">
+                  <NewSlot />
+                </RequireAuth>
+              }
+            />
+          </Route>
           <Route path="/" element={<Connexion />} />
           <Route path="/*" element={<Error />} />
           <Route
             path="/slot"
             element={
-              <RequireAuth loginPath="/connexion">
+              <RequireAuth loginPath="/">
                 <Slot />
               </RequireAuth>
             }

@@ -125,6 +125,7 @@ p {
 ul {
   display: flex;
   margin: 30px;
+  align-items: center;
 }
 
 li {

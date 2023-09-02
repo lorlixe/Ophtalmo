@@ -5,7 +5,7 @@ const { authentification, authorization } = require("../middleware/auth");
 
 const HospitalCtrl = require("../controllers/hospital_controller.js");
 
-router.get("/", authentification, authorization(1), HospitalCtrl.getHospital); // adapter avec la nouvelle fonction autorization
+router.get("/", authentification, HospitalCtrl.getHospital); // adapter avec la nouvelle fonction autorization
 router.get(
   "/:id",
   authentification,

@@ -9,14 +9,12 @@ export default function Calendar(slot) {
   // --------------------------------------------changer de page du calendrier----------------------------------------
   function next() {
     setNextDays(nextdays + 7);
-    console.log(nextdays);
   }
 
   function last() {
     nextdays > 0 ? setNextDays(nextdays - 7) : setNextDays(0);
-    console.log(nextdays);
   }
-  // --------------------------
+  // --------------------------afficher le calendrier-----------------------------------------
   useEffect(() => {
     let week = [];
     // let dday = firstDay.getDay();
@@ -40,7 +38,6 @@ export default function Calendar(slot) {
     }
     setAllWeek(week);
   }, [nextdays]);
-  console.log(allweek);
   return (
     <div>
       <div className="nextPage">

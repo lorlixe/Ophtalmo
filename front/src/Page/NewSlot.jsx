@@ -5,13 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 const NewSlot = () => {
   const [allHospital, setAllHospital] = useState([]);
-  const [hospital, setHospital] = useState("");
   const [selectedHospital, setSelectedHospital] = useState();
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [start, setStart] = useState();
 
-  const [isCreated, setIsCreated] = useState(false);
   const navigate = useNavigate();
   const [error, setError] = useState();
 
@@ -42,9 +40,6 @@ const NewSlot = () => {
       });
   }, [isSubmitted]);
 
-  // const dateObj = new Date(start);
-  // const newDateFormat = dateObj.toISOString();
-
   // gestion du formulaire -- créer un créneau pour un rdv
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,7 +48,7 @@ const NewSlot = () => {
         "http://localhost:8000/slot",
         {
           hospitalId: selectedHospital.id,
-          start: start + "z",
+          start: start,
         },
         { headers: headers }
       )
@@ -62,11 +57,10 @@ const NewSlot = () => {
         console.log(response);
       })
       .catch((err) => {
+        console.log(selectedHospital.id);
         console.log(err);
         setIsSubmitted(false);
         if (err.response.status !== 500) {
-          // console.log(start);
-
           setError(err.response.data.message);
         } else {
           setError("Le formulaire n'est pas complet");
@@ -91,6 +85,9 @@ const NewSlot = () => {
             )
           }
         >
+          <option value="" selected disabled hidden>
+            Choisir un hôpital
+          </option>
           {allHospital.map((oneHospital, index) => (
             <option key={index}>{oneHospital.name}</option>
           ))}
@@ -100,7 +97,7 @@ const NewSlot = () => {
           type="datetime-local"
           id="dateHeure"
           name="dateHeure"
-          onChange={(e) => setStart(e.target.value)}
+          onChange={(e) => setStart(e.target.value + "Z")}
         />
         <button className="btn-submit" type="submit">
           Connexion

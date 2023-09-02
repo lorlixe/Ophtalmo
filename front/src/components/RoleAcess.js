@@ -10,6 +10,7 @@ const RoleAccess = ({ roles = [] }) => {
   const token = getCookie("_auth");
 
   const user = jwt(token);
+
   console.log(user);
   return !roles.length || roles.includes(user?.TypeId) ? (
     <Outlet />

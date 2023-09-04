@@ -1,0 +1,99 @@
+.container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 77%;
+  padding: 5%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 50%;
+}
+
+form * {
+  font-family: "Poppins", sans-serif;
+  color: #050000;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.sexe {
+  display: flex;
+  margin: 0;
+  justify-content: space-between;
+}
+
+.inputsexe {
+  width: 6em;
+  display: flex;
+  align-items: center;
+}
+.Ophtalmo {
+  width: 48%;
+  position: absolute;
+  top: 31%;
+  left: 6%;
+}
+
+.Panneau {
+  width: 59%;
+  position: absolute;
+  top: 0%;
+  left: 1%;
+}
+
+.loginTitle {
+  margin: 0;
+  text-align: center;
+}
+
+form h3 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+}
+
+.btn-submit {
+  margin-top: 30px;
+  width: 15em;
+  background-color: white;
+  color: #19375f;
+  box-shadow: 10px 5px 5px #b2b1b1;
+  border: solid #19375f;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: #19375f;
+  color: white;
+}
+
+.btn {
+  margin: 15px 0;
+  color: #016c86;
+  font-weight: bold;
+}
+
+.btn:hover {
+  text-decoration: underline;
+  color: #19375f;
+}

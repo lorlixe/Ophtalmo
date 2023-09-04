@@ -10,6 +10,16 @@
   margin: 5px;
 }
 
+.nextPage {
+  display: flex;
+  justify-content: space-between;
+}
+.btn-link {
+  padding: 1em;
+  background-color: #f2f2f2;
+  border: solid 1px #19375f;
+  border-radius: 5px;
+}
 .slot-date {
   background-color: #ffffff;
   padding: 20px;

@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import Ophtalmo from "../Asset/panneau.jpg";
+
 const Signup = ({ onFormSwitch }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState({});
@@ -53,6 +55,7 @@ const Signup = ({ onFormSwitch }) => {
   };
   return (
     <div>
+      <img className="Panneau" src={Ophtalmo} alt="Ophtalmo" />
       <div className="container">
         <form action="" onSubmit={handleSubmitSingup}>
           <h1>Créer un compte</h1>

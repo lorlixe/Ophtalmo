@@ -4,19 +4,19 @@ import "../Style/grid.css";
 import axios from "axios";
 import jwt from "jwt-decode";
 
-function getCookie(key) {
-  var b = document.cookie.match("(^|;)\\s*" + key + "\\s*=\\s*([^;]+)");
-  return b ? b.pop() : "";
-}
-const token = getCookie("_auth");
-
-const user = jwt(token);
-const UserId = user.userId;
-const headers = {
-  "Content-Type": "application/json",
-  Authorization: "Bearer " + token,
-};
 const PopUpRdv = (props) => {
+  function getCookie(key) {
+    var b = document.cookie.match("(^|;)\\s*" + key + "\\s*=\\s*([^;]+)");
+    return b ? b.pop() : "";
+  }
+  const token = getCookie("_auth");
+
+  const user = jwt(token);
+  const UserId = user.userId;
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: "Bearer " + token,
+  };
   const [availablity, setAvailablity] = useState(true);
 
   function appointement() {

@@ -3,6 +3,8 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSignIn } from "react-auth-kit";
+import logo from "../Asset/Logo.png";
+import Ophtalmo from "../Asset/image ophtalmopng.png";
 
 const Login = ({ onFormSwitch }) => {
   const signIn = useSignIn();
@@ -47,9 +49,11 @@ const Login = ({ onFormSwitch }) => {
   };
   return (
     <div>
+      <img className="Ophtalmo" src={Ophtalmo} alt="Ophtalmo" />
       <div className="container">
+        <img className="logo" src={logo} alt="logo" />
         <form action="" onSubmit={handleSubmitLogin}>
-          <h1>Se connecter</h1>
+          <h1 className="loginTitle">Se connecter</h1>
           {!isSubmitted && <p className="info">{error}</p>}
           <div>
             <label htmlFor="email"> Email </label>

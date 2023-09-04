@@ -2,6 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import LogOut from "./LogOut";
 import jwt from "jwt-decode";
+import logo from "../Asset/Logo.png";
+import "../Style/navigation.css";
 
 function getCookie(key) {
   var b = document.cookie.match("(^|;)\\s*" + key + "\\s*=\\s*([^;]+)");
@@ -16,8 +18,8 @@ const Navigation = () => {
 
   return (
     <div className="navigation">
-      <ul>
-        <LogOut />
+      <ul className="menu">
+        <img className="logoNav" src={logo} alt="logo" />
         <NavLink to="/slot" className="slot">
           <li>Slot</li>
         </NavLink>
@@ -27,6 +29,7 @@ const Navigation = () => {
           </NavLink>
         )}
       </ul>
+      <LogOut />
     </div>
   );
 };

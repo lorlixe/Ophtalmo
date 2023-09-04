@@ -12,7 +12,9 @@ const LogOut = () => {
   };
   return (
     <div>
-      <button onClick={logout}>Déconnexion</button>
+      <button className="btnLogOut" onClick={logout}>
+        Déconnexion
+      </button>
     </div>
   );
 };

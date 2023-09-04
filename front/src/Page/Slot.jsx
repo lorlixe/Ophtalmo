@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
-// import Card from "../Components/Card";
+// // import Card from "../Components/Card";
 import Navigation from "../Components/Navigation";
 import axios from "axios";
 import Calendar from "../Components/Calendar";
 
 const Slot = () => {
   const [slot, setSlot] = useState([]);
-
+  function getCookie(key) {
+    var b = document.cookie.match("(^|;)\\s*" + key + "\\s*=\\s*([^;]+)");
+    return b ? b.pop() : "";
+  }
+  const token = getCookie("_auth");
   useEffect(() => {
-    function getCookie(key) {
-      var b = document.cookie.match("(^|;)\\s*" + key + "\\s*=\\s*([^;]+)");
-      return b ? b.pop() : "";
-    }
-    const token = getCookie("_auth");
-
     axios
       .get("http://localhost:8000/slot", {
         headers: {
@@ -28,7 +26,6 @@ const Slot = () => {
         console.log(err);
       });
   }, []);
-
   return (
     <div>
       <Navigation />

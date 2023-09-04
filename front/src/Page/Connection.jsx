@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Login from "../Components/Login";
 import Signup from "../Components/Signup";
+import "../Style/login.css";
 function Connexion() {
   const [currentForm, setCurrentForm] = useState("login");
   const toggelForm = (formName) => {

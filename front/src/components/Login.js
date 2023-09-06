@@ -48,7 +48,7 @@ const Login = ({ onFormSwitch }) => {
       });
   };
   return (
-    <div>
+    <div className="login-Section">
       <img className="Ophtalmo" src={Ophtalmo} alt="Ophtalmo" />
       <div className="container">
         <img className="logo" src={logo} alt="logo" />

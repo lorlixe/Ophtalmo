@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import logo from "../Asset/Logo.png";
+
 import Ophtalmo from "../Asset/panneau.jpg";
 
 const Signup = ({ onFormSwitch }) => {
@@ -54,9 +56,11 @@ const Signup = ({ onFormSwitch }) => {
     setSexe("femme");
   };
   return (
-    <div>
+    <div class="login-Section">
       <img className="Panneau" src={Ophtalmo} alt="Ophtalmo" />
       <div className="container">
+        <img className="logo" src={logo} alt="logo" />
+
         <form action="" onSubmit={handleSubmitSingup}>
           <h1>Créer un compte</h1>
           {isSubmitted && <p className="info">{error}</p>}

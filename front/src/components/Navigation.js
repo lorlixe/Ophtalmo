@@ -21,7 +21,7 @@ const Navigation = () => {
       <ul className="menu">
         <img className="logoNav" src={logo} alt="logo" />
         <NavLink to="/slot" className="slot">
-          <li>Slot</li>
+          <li>Prendre un rendez-vous</li>
         </NavLink>
         {type && (
           <NavLink to="/admin/newSlot" className="newslot">

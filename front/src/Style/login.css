@@ -1,9 +1,10 @@
 .container {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 77%;
-  padding: 5%;
+  /* position: absolute; */
+  /* transform: translate(-50%, -50%); */
+  margin: 5%;
+  /* top: 42%; */
+  /* left: 70%; */
+  padding: 0% 5% 2% 5%;
   border-radius: 10px;
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.1);
@@ -43,17 +44,21 @@ label {
   align-items: center;
 }
 .Ophtalmo {
-  width: 48%;
-  position: absolute;
-  top: 31%;
-  left: 6%;
+  width: 40%;
+  border-radius: 50%;
+}
+
+.login-Section {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .Panneau {
-  width: 59%;
-  position: absolute;
+  width: 40%;
+  /* position: absolute;
   top: 0%;
-  left: 1%;
+  left: 7%; */
 }
 
 .loginTitle {
@@ -66,6 +71,13 @@ form h3 {
   font-weight: 500;
   line-height: 42px;
   text-align: center;
+}
+
+.info {
+  margin: 3% auto;
+  text-align: center;
+  color: #ef3b3a;
+  font-weight: bold;
 }
 
 .btn-submit {
